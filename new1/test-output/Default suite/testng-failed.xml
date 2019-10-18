@@ -5,7 +5,7 @@
     <classes>
       <class name="new1.GetRequest">
         <methods>
-          <include name="statusCode"/>
+          <include name="statusCode1"/>
           <include name="setup"/>
         </methods>
       </class> <!-- new1.GetRequest -->
