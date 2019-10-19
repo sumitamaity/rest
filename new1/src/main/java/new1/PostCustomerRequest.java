@@ -48,7 +48,7 @@ public class PostCustomerRequest {
 
 	
 	
-	@Test
+	@Test(groups= {"hold"})
 	 public void postReq() throws IOException {
 		
 		
@@ -56,13 +56,10 @@ public class PostCustomerRequest {
 		  //RestAssured.baseURI =re.getValueFromCell("baseURI", "Sheet1");
 		  RestAssured.baseURI="http://restapi.demoqa.com/customer";
 		  RequestSpecification rs1 = RestAssured.given(); 
-		  JSONObject requestParams = new JSONObject();
 		  rs1.body(file);
 		  rs1.header("Content-Type","application/json");
 		 
-		//Response re= given().body(requestParams).when().post("http://dummy.restapiexample.com/api/v1/create"); 
-		//Response re= given().spec(rs).when().get(ServiceUrl.DIRECTION_RESOURCE);
-		Response re = rs1.post(ServiceUrl.REGISTER);
+	   	Response re = rs1.post(ServiceUrl.REGISTER);
 		
 		va.ExtractResponse(re);
 	}

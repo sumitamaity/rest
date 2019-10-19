@@ -14,22 +14,6 @@ public class Validation {
 	
 	static Validation va= new Validation();
 	
-	public static void ExtractResponse(Response re) {
-		String s=re.asString();
-		System.out.println(s);
-		System.out.println(re.statusCode());
-		JSONParser jp= new JSONParser();
-		Object ob;
-		try {
-			ob = jp.parse(s);
-		
-		JSONObject jo=(JSONObject)ob;
-		String result=va.parseJsonObject(jo);
-		System.out.println(result);} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	
 	public static void getArray(Object obj) {
@@ -67,4 +51,21 @@ public class Validation {
 		
 	}
 	
+	
+	public static void ExtractResponse(Response re) {
+		String s=re.asString();
+		System.out.println(s);
+		System.out.println(re.statusCode());
+		JSONParser jp= new JSONParser();
+		Object ob;
+		try {
+			ob = jp.parse(s);
+		
+		JSONObject jo=(JSONObject)ob;
+		String result=va.parseJsonObject(jo);
+		System.out.println(result);} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
