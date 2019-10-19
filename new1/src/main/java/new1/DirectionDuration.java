@@ -33,9 +33,9 @@ public class DirectionDuration {
 		RestAssured.baseURI = "https://maps.googleapis.com";
 		RestAssured.basePath = "/maps/api";
 		rsb = new RequestSpecBuilder();
-		rsb.setBaseUri("https://maps.googleapis.com");
+		rsb.setBaseUri(re.getValueFromCell("baseUri", "Sheet2"));
 		rsb.setBasePath(ServiceUrl.DIRECTION_URL);
-		rsb.addQueryParam("unit", "imperial");
+		rsb.addQueryParam(re.getValueFromCell("unit", "Sheet2"));
 		rsb.addQueryParam("origins", "Washington, DC");
 		rsb.addQueryParam("destinations", "New+York+City");
 		rsb.addQueryParam("key", "AIzaSyDD8n3WRjESCzg5OHh5rScQrW2ELAd2Ctw");
