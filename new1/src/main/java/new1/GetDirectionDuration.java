@@ -13,14 +13,12 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-
-import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import rest.service.ServiceUrl;
 
-public class DirectionDuration {
+public class GetDirectionDuration {
 	
 	RequestSpecBuilder rsb;
 	RequestSpecification rs;
@@ -29,11 +27,25 @@ public class DirectionDuration {
 	@BeforeClass
 	public void setup() {
 		
+		/*
+		 * Map<String, String> params= new LinkedHashMap<String, String>();
+		 * params.put("origin","Washington, DC");
+		 * params.put("destinations","New+York+City"); rsb = new RequestSpecBuilder();
+		 * rsb.setBaseUri(re.getValueFromCell("baseUri", "Sheet1"));
+		 * rsb.setBasePath(ServiceUrl.DIRECTION_URL);
+		 * //rsb.addQueryParam(re.getValueFromCell("unit", "Sheet1"));
+		 * rsb.addQueryParam("unit","imperial");
+		 * rsb.addQueryParam("origin","Washington, DC");
+		 * rsb.addQueryParam("destinations", "New+York+City");
+		 * rsb.addQueryParam("key","AIzaSyDD8n3WRjESCzg5OHh5rScQrW2ELAd2Ctw"); rs =
+		 * rsb.build();
+		 */
 		
-		RestAssured.baseURI = "https://maps.googleapis.com";
-		RestAssured.basePath = "/maps/api";
+		//rsb.setBaseUri(re.getValueFromCell("baseURI", "Sheet1"));
+		//rs= rsb.build();
+		
 		rsb = new RequestSpecBuilder();
-		rsb.setBaseUri(re.getValueFromCell("baseUri", "Sheet2"));
+		rsb.setBaseUri(re.getValueFromCell("baseURI", "Sheet2"));
 		rsb.setBasePath(ServiceUrl.DIRECTION_URL);
 		rsb.addQueryParam(re.getValueFromCell("unit", "Sheet2"));
 		rsb.addQueryParam("origins", "Washington, DC");
