@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="16759" started-at="2019-10-17T17:01:19Z" finished-at="2019-10-17T17:01:35Z">
+  <suite name="Default suite" duration-ms="5458" started-at="2019-10-19T15:03:18Z" finished-at="2019-10-19T15:03:23Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="16759" started-at="2019-10-17T17:01:19Z" finished-at="2019-10-17T17:01:35Z">
-      <class name="new1.GetRequest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:new1.GetRequest@6d4b1c02]" name="setup" is-config="true" duration-ms="938" started-at="2019-10-17T17:01:19Z" finished-at="2019-10-17T17:01:20Z">
+    <test name="Default test" duration-ms="5458" started-at="2019-10-19T15:03:18Z" finished-at="2019-10-19T15:03:23Z">
+      <class name="new1.DirectionDuration">
+        <test-method status="PASS" signature="setup()[pri:0, instance:new1.DirectionDuration@619713e5]" name="setup" is-config="true" duration-ms="668" started-at="2019-10-19T15:03:18Z" finished-at="2019-10-19T15:03:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="statusCode1()[pri:0, instance:new1.GetRequest@6d4b1c02]" name="statusCode1" duration-ms="15763" started-at="2019-10-17T17:01:20Z" finished-at="2019-10-17T17:01:35Z">
+        <test-method status="PASS" signature="statusCode()[pri:0, instance:new1.DirectionDuration@619713e5]" name="statusCode" duration-ms="4748" started-at="2019-10-19T15:03:19Z" finished-at="2019-10-19T15:03:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- statusCode1 -->
-      </class> <!-- new1.GetRequest -->
+        </test-method> <!-- statusCode -->
+      </class> <!-- new1.DirectionDuration -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

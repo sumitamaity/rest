@@ -9,10 +9,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static io.restassured.RestAssured.given;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import io.restassured.RestAssured;
@@ -21,6 +28,8 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import rest.responsePojo.DistanceMatrix;
 import rest.service.ServiceUrl;
+
+import org.apache.commons.lang3.Validate;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -30,9 +39,12 @@ public class GetRequest {
 
 	RequestSpecBuilder rsb;
 	RequestSpecification rs;
-
+	Validation va=new Validation();
+	readExcel re=new readExcel("C:\\Users\\summaity.ORADEV\\Documents\\SM\\LastMin\\FirstApi.xlsx");
 	@BeforeClass
 	public void setup() {
+		
+		
 		RestAssured.baseURI = "https://maps.googleapis.com";
 		RestAssured.basePath = "/maps/api";
 		rsb = new RequestSpecBuilder();
@@ -43,98 +55,64 @@ public class GetRequest {
 		rsb.addQueryParam("destinations", "New+York+City");
 		rsb.addQueryParam("key", "AIzaSyDD8n3WRjESCzg5OHh5rScQrW2ELAd2Ctw");
 		rs = rsb.build();
+		/*
+		 * Map<String, String> params= new LinkedHashMap<String, String>();
+		 * params.put("origin","Washington, DC");
+		 * params.put("destinations","New+York+City"); rsb = new RequestSpecBuilder();
+		 * rsb.setBaseUri(re.getValueFromCell("baseUri", "Sheet1"));
+		 * rsb.setBasePath(ServiceUrl.DIRECTION_URL);
+		 * //rsb.addQueryParam(re.getValueFromCell("unit", "Sheet1"));
+		 * rsb.addQueryParam("unit","imperial");
+		 * rsb.addQueryParam("origin","Washington, DC");
+		 * rsb.addQueryParam("destinations", "New+York+City");
+		 * rsb.addQueryParam("key","AIzaSyDD8n3WRjESCzg5OHh5rScQrW2ELAd2Ctw"); rs =
+		 * rsb.build();
+		 */
+		
+		//rsb.setBaseUri(re.getValueFromCell("baseURI", "Sheet1"));
+		//rs= rsb.build();
+		
 	}
 
-	public static void parseJsonObject(JSONObject jsonobj) {
-		Set<Object> set= jsonobj.keySet();
-		Iterator<Object> it= set.iterator();
-		while(it.hasNext()) {
-			Object obj= it.next();
-			if(jsonobj.get(obj) instanceof JSONArray) {
-				System.out.println(obj.toString());
-				getArray(jsonobj.get(obj));
-			}
-			else
-			if(jsonobj.get(obj) instanceof JSONObject) {
-				parseJsonObject((JSONObject)jsonobj.get(obj));
-			}
-			else {
-				System.out.println(obj.toString()+" "+jsonobj.get(obj));
-			}
-		}
-	}
 	
-	public static void getArray(Object obj) {
-		JSONArray ja= (JSONArray) obj;
-		for(int i=0; i< ja.size(); i++) {
-			if(ja.get(i) instanceof JSONObject ) {
-				parseJsonObject((JSONObject)ja.get(i));
-			}
-			else {
-				System.out.println(ja.get(i));
-			}
-		}
-	}
 	
-	@Test
+	//@Test
 	 public void statusCode1() throws JsonParseException, JsonMappingException, IOException, ParseException {
-		given()
-		.spec(rs)
-		.when()
-		.get(ServiceUrl.DIRECTION_RESOURCE);
-//		.then()
-//		.log()
-//		.body();
-
-		Response re= given().spec(rs).when().get(ServiceUrl.DIRECTION_RESOURCE);
+		/*
+		 * given() .spec(rs) .when() .get(ServiceUrl.DIRECTION_RESOURCE);
+		 * 
+		 * .then().log().body();
+		 */
+		
+		
+		  RestAssured.baseURI ="http://restapi.demoqa.com/customer";
+		  RequestSpecification rs1 = RestAssured.given(); 
+		  JSONObject requestParams = new JSONObject();
+		  requestParams.put("FirstName", "Sumita");
+		  requestParams.put("LastName", "Maity");
+		  
+		  requestParams.put("UserName", "sumita91"); 
+		  requestParams.put("Password", "password1"); 
+		  requestParams.put("Email", "sumita@gmail.com");
+		  
+		  rs1.body(requestParams.toJSONString());
+		  rs1.header("Content-Type","application/json");
+		 
+		//Response re= given().body(requestParams).when().post("http://dummy.restapiexample.com/api/v1/create"); 
+		//Response re= given().spec(rs).when().get(ServiceUrl.DIRECTION_RESOURCE);
+		Response re = rs1.post("/register");
 		String s=re.asString();
 		System.out.println(s);
+		System.out.println(re.statusCode());
 		JSONParser jp= new JSONParser();
 		Object ob=jp.parse(s);
 		JSONObject jo=(JSONObject)ob;
-		parseJsonObject(jo);
+		String result=va.parseJsonObject(jo);
+		System.out.println(result);
 	}
 	
-//@Test
- public void statusCode() throws JsonParseException, JsonMappingException, IOException, ParseException {
-	given()
-	.spec(rs)
-	.when()
-	.get(ServiceUrl.DIRECTION_RESOURCE);
-//	.then()
-//	.log()
-//	.body();
+	 
 
-	Response re= given().spec(rs).when().get(ServiceUrl.DIRECTION_RESOURCE);
-	String s=re.asString();
-	System.out.println(s);
-	JSONParser jp= new JSONParser();
-	Object ob=jp.parse(s);
-	JSONObject jo=(JSONObject)ob;
-	JSONObject joEle = null;
-	JSONArray ja1 = null;
-	JSONArray ja2 = null;
-	JSONArray ja=(JSONArray) jo.get("rows");
-	for(int j=0; j<ja.size(); j++) {
-		JSONObject jo1=(JSONObject) ja.get(j);
-	
-		ja1=(JSONArray) jo1.get("elements");
-		
-		for(int i=0; i<ja1.size();i++) {
-			JSONObject j1=(JSONObject) ja1.get(i);
-			JSONObject jf=(JSONObject) j1.get("duration");
-			String text=(String)jf.get("text");
-			System.out.println(text);
-		
-		}
-		
-		ja2=(JSONArray)jo.get("origin_addresses");
-	    System.out.println(ja2.get(j));
-		
-	}
-	}
-	
-	
 	
 	
 	
