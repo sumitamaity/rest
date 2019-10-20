@@ -9,5 +9,7 @@ public class ServiceUrl {
 	public static final String EMPLOYEE_RESOURCE = "/create";
 	public static final String REGISTER="/register";
 	public static final String CITY="/Hyderabad";
+	public static final String AUTH="/CheckForAuthentication";
+	
 	
 }
