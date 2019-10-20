@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.apache.poi.sl.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -77,16 +79,22 @@ public class readExcel {
 		for(int j=1; j<rowNum; j++) {
 			XSSFRow col=(XSSFRow) wb.getSheetAt(sheetIndex).getRow(j);
 			XSSFCell cell=col.getCell(coulumnNumber);
-			value=cell.getStringCellValue();
+			//value=cell.getStringCellValue();
+			value=getFormattedCellValu(cell);
 			System.out.println(value);
 			
 		}
 		return value;
 	 }
 	
-	 
+ public String getFormattedCellValu(Cell myCell) {
+	 DataFormatter formatter = new DataFormatter();
+	 String formattedCellValue = formatter.formatCellValue(myCell);
+	return formattedCellValue;
+ }
  
-
+ 
+ 
 	
 	
 	/*

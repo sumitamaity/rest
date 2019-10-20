@@ -12,9 +12,10 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import rest.service.ServiceUrl;
 
-public class GetWeather {
+public class GetWeather extends Validation{
 	readExcel re=new readExcel("C:\\Users\\summaity.ORADEV\\Documents\\SM\\LastMin\\FirstApi.xlsx");
-	Validation va= new Validation();
+	//Validation va= new Validation();
+	
 	 @Test
 	 public void GetWeatherDetails()
 	 {   
@@ -32,14 +33,15 @@ public class GetWeather {
 	 //Response response = Request.options(ServiceUrl.CITY);  // /Hyderabad
 	 // Now let us print the body of the message to see what response
 	 // we have recieved from the server
-	 String responseBody = response.getBody().asString();
 	 Headers Header = response.getHeaders();//.asString();
-	 System.out.println(Header);
-	 System.out.println("---------------------------------");
-	 System.out.println("Response Body is =>  " + responseBody);
-	 System.out.println("---------------------------------");
-	 System.out.println(response.getStatusLine());
-	 System.out.println("---------------------------------");
-	 va.ExtractResponse(response);
+	 
+	 System.out.println("-------------------------------------------");
+	
+	 va.printAllInConsole(Header);
+	 //System.out.println(response.getBody());
+	 va.printAllInConsole(response.getBody().asString());
+	 //print Status Line
+	 va.printAllInConsole(response.getStatusLine());
+		
 	 }
 }

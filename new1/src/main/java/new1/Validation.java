@@ -8,6 +8,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import io.restassured.http.Header;
+import io.restassured.http.Headers;
 import io.restassured.response.Response;
 
 public class Validation {
@@ -62,10 +64,32 @@ public class Validation {
 			ob = jp.parse(s);
 		
 		JSONObject jo=(JSONObject)ob;
-		String result=va.parseJsonObject(jo);
+		String result=Validation.parseJsonObject(jo);
 		System.out.println(result);} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public static void validateHeader(Response response, String Key, String value) {
+		Headers Header = response.getHeaders();//.asString();
+		 
+		 for(Header h:Header) {
+				if(h.getName().equals(Key)&& h.getValue().equals(value))
+					System.out.println("Header Validated successfully");
+			 }
+	}
+	
+	public void printAllInConsole(Object response) {
+		if(response instanceof String)
+		System.out.println(response);
+		else
+		System.out.println(response.toString());
+		
+		System.out.println("---------------------------------------------");
+	}
+	
+	
+	
 }
