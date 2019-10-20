@@ -36,8 +36,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class PostCustomerRequest {
-	RequestSpecBuilder rsb;
-	RequestSpecification rs;
+	
 	Validation va=new Validation();
 	readExcel re=new readExcel("C:\\Users\\summaity.ORADEV\\Documents\\SM\\LastMin\\FirstApi.xlsx");
 	

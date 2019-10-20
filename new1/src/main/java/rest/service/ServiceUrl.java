@@ -10,6 +10,9 @@ public class ServiceUrl {
 	public static final String REGISTER="/register";
 	public static final String CITY="/Hyderabad";
 	public static final String AUTH="/CheckForAuthentication";
+	public static final String EMP_ID="/update/";
+	public static final String DEL="/delete/";
+	
 	
 	
 }

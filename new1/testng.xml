@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
+<
   <test thread-count="5" name="Test">
+  <groups>
+  <run>
+  	<exclude name= "hold"/>
+  </run>
+  </groups>
     <classes>
       <class name="rest.service.Services"/>
+      <class name="new1.GetWeather"/>
+      <class name="new1.PostCustomerRequest"/>
+      <class name="new1.ValidateJsonFile"/>
      
     </classes>
   </test> <!-- Test -->
