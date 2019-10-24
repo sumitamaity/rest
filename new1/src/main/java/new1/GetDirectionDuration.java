@@ -124,10 +124,7 @@ public class GetDirectionDuration {
 		     
 			 if(a instanceof JSONObject) 
 			 {
-				//System.out.println(a+" is a jsonObject");
-				/*Res1=validateResponseJsonObj(a,value1);
-				if(Res1 instanceof JSONObject) {*/
-					Res=validateResponseJsonObj(a,value1);
+				Res=validateResponseJsonObj(a,value1);
 				}
 				else {
 					Res=validateResponseJsonArray(a,value1);
