@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\summaity.ORADEV\AppData\Local\Temp\testng-eclipse--1048469395\testng-customsuite.xml</span>
+                    <span>C:\Users\summaity.ORADEV\AppData\Local\Temp\testng-eclipse-1773750340\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,7 +102,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="new1.GetDirectionDuration" hash-for-method="statusCode">statusCode</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="new1.DeleteReq" hash-for-method="DeleteRecord">DeleteRecord</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -120,14 +120,14 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">new1.GetDirectionDuration</span>
+              <span class="class-name">new1.DeleteReq</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="statusCode">
-                  </a> <!-- statusCode -->
-                  <span class="method-name">statusCode</span>
+                  <a name="DeleteRecord">
+                  </a> <!-- DeleteRecord -->
+                  <span class="method-name">DeleteRecord</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -135,7 +135,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\summaity.ORADEV\AppData\Local\Temp\testng-eclipse--1048469395\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\summaity.ORADEV\AppData\Local\Temp\testng-eclipse-1773750340\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -144,7 +144,7 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;new1.GetDirectionDuration&quot;/&gt;
+      &lt;class name=&quot;new1.DeleteReq&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -186,14 +186,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'statusCode')
-data.setCell(0, 2, 'new1.GetDirectionDuration')
-data.setCell(0, 3, 2881);
+data.setCell(0, 1, 'DeleteRecord')
+data.setCell(0, 2, 'new1.DeleteReq')
+data.setCell(0, 3, 8095);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <span class="suite-total-time">Total running time: 8 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -219,15 +219,27 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">new1.GetDirectionDuration</div> <!-- chronological-class-name -->
-              <div class="configuration-class before">
+              <div class="chronological-class-name">new1.DeleteReq</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
                 <span class="method-name">setup</span>
                 <span class="method-start">0 ms</span>
-              </div> <!-- configuration-class before -->
+              </div> <!-- configuration-suite before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(public void new1.DeleteReq.DeleteRecord())</span>
+                <span class="method-start">230 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">statusCode</span>
-                <span class="method-start">730 ms</span>
+                <span class="method-name">DeleteRecord</span>
+                <span class="method-start">242 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">getResult([TestResult name=DeleteRecord status=SUCCESS method=DeleteReq.DeleteRecord()[pri:0, instance:new1.De...)</span>
+                <span class="method-start">8341 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-suite after">
+                <span class="method-name">aftersuite</span>
+                <span class="method-start">8387 ms</span>
+              </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

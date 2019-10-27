@@ -1,5 +1,6 @@
 package new1;
 
+import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -7,6 +8,16 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 
 import io.restassured.http.Header;
 import io.restassured.http.Headers;
@@ -14,10 +25,43 @@ import io.restassured.response.Response;
 
 public class Validation {
 	
+	public static ExtentReports extent;
+	public static ExtentTest test;
 	static Validation va= new Validation();
+	@BeforeSuite
+	public void setup() {
+		
+		extent= new ExtentReports("C:\\Users\\summaity.ORADEV\\Documents\\SM\\LastMin\\MyReporter.html");
+         
+	}
 	
 	
+	@BeforeMethod
+	public void beforeMethod(Method method) {
+	test= extent.startTest((this.getClass().getSimpleName()+"::"+method.getName()), method.getName());
+	test.assignAuthor("Sumita");
 	
+	}
+	
+	@AfterMethod
+	public void getResult(ITestResult result) {
+		if(result.getStatus()==ITestResult.FAILURE) {
+			test.log(LogStatus.FAIL, "test case failed ");
+		}
+		if(result.getStatus()==ITestResult.SUCCESS) {
+			test.log(LogStatus.PASS, "test case Passed");
+		}
+		if(result.getStatus()==ITestResult.SKIP) {
+			test.log(LogStatus.SKIP, "test case skipped");
+		}
+		
+	}
+	
+	@AfterSuite
+	public void aftersuite() {
+		extent.flush();
+		extent.close();
+	}
 	public static void getArray(Object obj) {
 		JSONArray ja= (JSONArray) obj;
 		for(int i=0; i< ja.size(); i++) {
@@ -82,6 +126,7 @@ public class Validation {
 	}
 	
 	public void printAllInConsole(Object response) {
+		
 		if(response instanceof String)
 		System.out.println(response);
 		else

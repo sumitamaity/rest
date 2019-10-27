@@ -14,6 +14,8 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import groovy.json.internal.Type;
+
 public class readExcel {
 	Workbook wb=null;
 	org.apache.poi.ss.usermodel.Sheet ws=null;
@@ -63,6 +65,7 @@ public class readExcel {
 	 int sheetIndex=wb.getSheetIndex(ws);
 	 int rowNum= getRowCount(ws);
 	 int colNum=getColumnCount(ws);
+	 
 	// System.out.println(rowNum+"  "+colNum);
 	 int coulumnNumber=0;
 	 String result=null;
@@ -79,6 +82,8 @@ public class readExcel {
 		for(int j=1; j<rowNum; j++) {
 			XSSFRow col=(XSSFRow) wb.getSheetAt(sheetIndex).getRow(j);
 			XSSFCell cell=col.getCell(coulumnNumber);
+			
+			
 			//value=cell.getStringCellValue();
 			value=getFormattedCellValu(cell);
 			System.out.println(value);

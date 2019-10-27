@@ -2,20 +2,46 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="3634" started-at="2019-10-20T16:51:25Z" finished-at="2019-10-20T16:51:29Z">
+  <suite name="Default suite" duration-ms="8156" started-at="2019-10-27T02:51:05Z" finished-at="2019-10-27T02:51:14Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="3634" started-at="2019-10-20T16:51:25Z" finished-at="2019-10-20T16:51:29Z">
-      <class name="new1.GetDirectionDuration">
-        <test-method status="PASS" signature="setup()[pri:0, instance:new1.GetDirectionDuration@7193666c]" name="setup" is-config="true" duration-ms="710" started-at="2019-10-20T16:51:25Z" finished-at="2019-10-20T16:51:26Z">
+    <test name="Default test" duration-ms="8156" started-at="2019-10-27T02:51:05Z" finished-at="2019-10-27T02:51:14Z">
+      <class name="new1.DeleteReq">
+        <test-method status="PASS" signature="setup()[pri:0, instance:new1.DeleteReq@43195e57]" name="setup" is-config="true" duration-ms="192" started-at="2019-10-27T02:51:05Z" finished-at="2019-10-27T02:51:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="statusCode()[pri:0, instance:new1.GetDirectionDuration@7193666c]" name="statusCode" duration-ms="2881" started-at="2019-10-20T16:51:26Z" finished-at="2019-10-20T16:51:29Z">
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:new1.DeleteReq@43195e57]" name="beforeMethod" is-config="true" duration-ms="12" started-at="2019-10-27T02:51:06Z" finished-at="2019-10-27T02:51:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void new1.DeleteReq.DeleteRecord()]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- statusCode -->
-      </class> <!-- new1.GetDirectionDuration -->
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="DeleteRecord()[pri:0, instance:new1.DeleteReq@43195e57]" name="DeleteRecord" duration-ms="8095" started-at="2019-10-27T02:51:06Z" finished-at="2019-10-27T02:51:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteRecord -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:new1.DeleteReq@43195e57]" name="getResult" is-config="true" duration-ms="3" started-at="2019-10-27T02:51:14Z" finished-at="2019-10-27T02:51:14Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=DeleteRecord status=SUCCESS method=DeleteReq.DeleteRecord()[pri:0, instance:new1.DeleteReq@43195e57] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="aftersuite()[pri:0, instance:new1.DeleteReq@43195e57]" name="aftersuite" is-config="true" duration-ms="520" started-at="2019-10-27T02:51:14Z" finished-at="2019-10-27T02:51:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aftersuite -->
+      </class> <!-- new1.DeleteReq -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

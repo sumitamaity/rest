@@ -118,8 +118,8 @@ public class GetDirectionDuration {
 
 	public Object validateResponse(String res, Object Key, Object value1) 
 	{       JSONObject jo=GetJSONFromResP(res);
-		    Object Res=null;
-		    Object Res1=null;
+		     Object Res=null;
+		     Object Res1=null;
 		     Object a=validateResponseJsonObj(jo, Key);
 		     
 			 if(a instanceof JSONObject) 

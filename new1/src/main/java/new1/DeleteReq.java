@@ -9,7 +9,7 @@ import io.restassured.specification.RequestSpecification;
 import rest.service.ServiceUrl;
 
 @Test
-public class DeleteReq {
+public class DeleteReq extends Validation{
 	readExcel re=new readExcel("C:\\Users\\summaity.ORADEV\\Documents\\SM\\LastMin\\FirstApi.xlsx");
 	Validation va= new Validation();
 	
